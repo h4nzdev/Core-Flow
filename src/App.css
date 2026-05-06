@@ -1,5 +1,3 @@
-/* Keyframe animations only — everything else is Tailwind */
-
 @keyframes geo-spin {
   from { transform: rotate(0deg); }
   to   { transform: rotate(360deg); }
@@ -7,10 +5,13 @@
 
 @keyframes geo-pulse {
   0%, 100% { transform: scale(1);   opacity: 1; }
-  50%       { transform: scale(1.3); opacity: 0.7; }
+  50%       { transform: scale(1.15); opacity: 0.75; }
 }
 
 @keyframes status-ping {
-  0%   { transform: scale(1);   opacity: 0.75; }
-  75%, 100% { transform: scale(2); opacity: 0; }
+  0%        { transform: scale(1);  opacity: 0.75; }
+  75%, 100% { transform: scale(2);  opacity: 0; }
 }
+
+/* Keeps 3D tilt cards from clipping children */
+.tilt-card { transform-style: preserve-3d; }
