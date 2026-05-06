@@ -214,6 +214,10 @@ function Problem() {
         opacity: 0, y: 40, duration: 0.8, ease: 'power2.out',
         scrollTrigger: { trigger: '.pb-header', start: 'top 82%' },
       });
+      gsap.from('.pb-stat', {
+        opacity: 0, y: 30, duration: 0.7, ease: 'power2.out', stagger: 0.12,
+        scrollTrigger: { trigger: '.pb-stats', start: 'top 84%' },
+      });
       gsap.from('.pb-card', {
         opacity: 0, y: 50, duration: 0.7, ease: 'power2.out', stagger: 0.14,
         scrollTrigger: { trigger: '.pb-cards', start: 'top 82%' },
@@ -239,6 +243,22 @@ function Problem() {
           </h2>
           <p className="font-mono text-[12px] text-[#8094A6] tracking-widest">(System Overload Detected)</p>
         </div>
+        {/* Stats row */}
+        <div className="pb-stats grid grid-cols-1 sm:grid-cols-3 mb-16 border border-[rgba(56,189,248,0.12)] rounded-xl overflow-hidden">
+          {[
+            { value: '68%',  label: 'of SMB support tickets miss response SLA' },
+            { value: '$47K', label: 'average annual cost of a mis-hired support agent' },
+            { value: '3.2×', label: 'revenue loss multiplier from slow customer response' },
+          ].map((s, i) => (
+            <div key={s.value}
+              className={`pb-stat flex flex-col items-center text-center px-8 py-10 bg-[rgba(56,189,248,0.02)]
+                ${i < 2 ? 'sm:border-r border-b sm:border-b-0 border-[rgba(56,189,248,0.12)]' : ''}`}>
+              <span className="font-serif text-[3.2rem] font-light text-[#38BDF8] leading-none mb-3">{s.value}</span>
+              <span className="font-mono text-[11px] text-[#8094A6] leading-relaxed max-w-[22ch]">{s.label}</span>
+            </div>
+          ))}
+        </div>
+
         <div className="pb-cards grid grid-cols-1 md:grid-cols-3 gap-5">
           {cards.map((c) => (
             <div key={c.title}
