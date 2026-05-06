@@ -1,0 +1,29 @@
+@import "tailwindcss";
+
+@theme {
+  --color-obsidian: #03050A;
+  --color-surface: #0A0D14;
+  --color-accent: #38BDF8;
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-mono: 'Space Mono', ui-monospace, Consolas, monospace;
+}
+
+@layer base {
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: #03050A;
+    color: #F0F4F8;
+    font-family: 'Space Mono', ui-monospace, Consolas, monospace;
+    overflow-x: hidden;
+    cursor: none;
+  }
+
+  ::selection {
+    background: rgba(56, 189, 248, 0.35);
+    color: #F0F4F8;
+  }
+
+  * { cursor: none !important; }
+}
